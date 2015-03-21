@@ -34,9 +34,12 @@ for line in fin:
 	fout.write(str(out)+'\n');
 	
 print(cnt);
+fout2 = open("attr-num.data","w");
 for i in range(0,tot):
 	if (attr[i] != 0):
+		fout2.write(str(len(attr_dex[i])));
 		for j in attr_dex[i]:
 			fout_attr.write(j + " ");
 	fout_attr.write('\n');
+	fout2.write('\n');
 	
