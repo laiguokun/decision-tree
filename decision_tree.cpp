@@ -2,7 +2,8 @@
 #include <fstream>
 #include <vector>
 #include <cmath>
-#define datafile "data//vaild.data"
+#define datafile "data//id.test"
+#define datafile "data//id.test"
 #define testfile "data//pre2.test"
 
 //const int[] attr = {0, 8, 0, 16, 0, 7, 14, 6, 5, 2, 0, 0, 0, 41}
