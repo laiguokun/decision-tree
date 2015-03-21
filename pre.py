@@ -1,3 +1,4 @@
+#get data from dataset
 attr = [0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1]
 tot = len(attr)
 
