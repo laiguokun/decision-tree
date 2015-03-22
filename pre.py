@@ -26,7 +26,7 @@ for line in fin:
 			result.append(attrs[i])
 		else:
 			if (not(attrs[i] in attr_dex[i])):
-				attr_dex[i][attrs[i]] = len(attr_dex[i]) + 1;
+				attr_dex[i][attrs[i]] = len(attr_dex[i]);
 			result.append(attr_dex[i][attrs[i]]);
 
 	for i in range(0,tot):

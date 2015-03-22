@@ -2,14 +2,14 @@
 #include <fstream>
 #include <vector>
 #include <cmath>
-#define datafile "data//c45.test"
-#define testfile "data//c45.test"
+#define datafile "data//pre2.data"
+#define testfile "data//pre2.test"
 
-//const int[] attr = {0, 8, 0, 16, 0, 7, 14, 6, 5, 2, 0, 0, 0, 41}
-//const int attr_num = 14;
-const int attr[] = {3, 0, 0, 2};
-const int attr_num = 4;
-const int threshold = 0;
+const int attr[] = {0, 8, 0, 16, 0, 7, 14, 6, 5, 2, 0, 0, 0, 41};
+const int attr_num = 14;
+//const int attr[] = {3, 0, 0, 2};
+//const int attr_num = 4;
+const int threshold = 100;
 int tot_id = 0;
 
 using namespace std;
@@ -48,7 +48,17 @@ void get_input()
 		User new_user;
 		new_user.attr[0] = age;
 		for (int i = 1; i <= attr_num; i++)
+		{
 			fin >> new_user.attr[i];
+		}
+/*		if (new_user.attr[1] >= attr[1])
+		{
+			for (int i = 1; i <= attr_num; i++)
+			{
+				cout << new_user.attr[i]<< " ";
+			}
+			cout << endl;
+		}*/
 		user->push_back(new_user);
 	}
 	cout<<datafile<<endl;
@@ -84,11 +94,13 @@ Node* root;
 
 Node* buildTree(vector<User>* user, double entropy)
 {
+//	cout << "fuck" << endl;
 	double delta = 0;
 	int choose = 0;
 	int choose_num = 0;
 	double sum = user->size();
 	double false_num = 0;
+//	cout << sum <<endl;
 	for (int i = 0; i < user->size(); i++)
 	{
 		if ((*user)[i].attr[attr_num] == 0) false_num ++;
@@ -98,7 +110,7 @@ Node* buildTree(vector<User>* user, double entropy)
 //	cout<<"build "<<sum<<endl;
 	for (int i = 0; i < attr_num; i++)
 	{
-//		cout << i <<endl;
+//		cout << i << " ";
 		if (attr[i] == 0)
 		{
 			double best_gain = 0;
@@ -145,7 +157,6 @@ Node* buildTree(vector<User>* user, double entropy)
 				cnt[j] = 0;
 				ss[j] = 0;
 			}
-//			cout << (*user)[0].attr[i] << endl;
 			for (int j = 0; j < sum; j++)
 			{
 				ss[(*user)[j].attr[i]] ++;
@@ -163,28 +174,28 @@ Node* buildTree(vector<User>* user, double entropy)
 				tmp -= ((double)frac2) * 
 						(frac * (mylog(frac)/log(2)) + (1-frac) * (mylog(1-frac)/log(2)));
 			}
-//			cout << entropy << endl;
-//			cout << (entropy - tmp)/rate <<endl;
+			if (rate == 0) continue;
 			if ((entropy - tmp)/rate > delta)
 			{
 				delta = (entropy - tmp)/rate;
 				choose = i;
 			}
+			delete[] cnt;
+			delete[] ss;
 		}
 	}
-//	cout <<sum<<endl;
-//	cout<< choose<<endl;
-//	cout<<delta<<endl;
+//	return new Node(0,0);
+//	cout << delta << endl;
+//	cout << choose << endl;
+//	cout << choose_num << endl;
 	if (delta < 1e-3 or sum < threshold)
 	{
 		if (false_num > sum/2) return new Node(0,0);
 		else return new Node(0,1);
 	}
-//	cout <<choose<<endl;
-//	cout<< attr[choose]<<endl;
+//	cout << choose << " "<< delta << endl;
 	if (attr[choose]>0)
 	{
-//		cout<<"fuck"<<endl;
 		Node* result = new Node(attr[choose]);
 		result->attr = choose;
 		int* cnt = new int[attr[choose]];
@@ -210,6 +221,11 @@ Node* buildTree(vector<User>* user, double entropy)
 			double next_entropy = -frac * mylog(frac)/log(2) - (1-frac) * mylog(1-frac)/log(2);
 			result->sonList[j] = buildTree(separate[j], next_entropy);
 		}
+		delete[] cnt;
+		delete[] ss;
+		for (int j = 0; j < attr[choose]; j++)
+			delete separate[j];
+		delete[] separate;
 		return result;
 	}	
 	else
@@ -240,6 +256,9 @@ Node* buildTree(vector<User>* user, double entropy)
 		frac = (double)cnt[1]/c2->size();
 		next_entropy = -frac * mylog(frac)/log(2) - (1-frac) * mylog(1-frac)/log(2);
 		result->sonList[1] = buildTree(c2, next_entropy);
+		delete[] cnt;
+		delete c1;
+		delete c2;
 		return result;
 	}
 }
@@ -286,7 +305,7 @@ int search(Node* node, User user)
 
 void test()
 {
-	ifstream fin(datafile);
+	ifstream fin(testfile);
 	int age;
 	int cnt = 0;
 	int acc = 0;
@@ -300,9 +319,9 @@ void test()
 		if (ans == new_user.attr[attr_num]) acc++;
 		else 
 		{
-			for (int i = 0; i <= attr_num; i++)
-				cout << new_user.attr[i] << " ";
-			cout << endl;
+//			for (int i = 0; i <= attr_num; i++)
+//				cout << new_user.attr[i] << " ";
+//			cout << endl;
 		}
 		cnt ++;
 	}
