@@ -32,6 +32,31 @@ for line in fin:
 	for i in range(0,tot):
 		fout.write(str(result[i])+" ");
 	fout.write(str(out)+'\n');
+
+fin = open("data\\adult.test", "r")
+fout = open("data\\pre1.test", "w")
+for line in fin:
+	attrs = line[0:-1].split(',');
+	result = []
+	out = 0
+	if (attrs[tot] == "<=50K."):
+		out = 0
+	else:
+		out = 1
+		
+	for i in range(0, tot):
+		if (attr[i] == 0 or attrs[i] == '?'):
+			result.append(attrs[i])
+		else:
+			if (not(attrs[i] in attr_dex[i])):
+				result.append('?');
+			else:
+				result.append(attr_dex[i][attrs[i]]);
+			
+
+	for i in range(0,tot):
+		fout.write(str(result[i])+" ");
+	fout.write(str(out)+'\n');
 	
 print(cnt);
 fout2 = open("attr-num.data","w");

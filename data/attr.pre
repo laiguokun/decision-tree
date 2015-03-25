@@ -1,14 +1,14 @@
 
-Local-gov Self-emp-inc State-gov Federal-gov Private Self-emp-not-inc Never-worked Without-pay 
+Self-emp-not-inc Local-gov State-gov Self-emp-inc Private Federal-gov Without-pay Never-worked 
 
-10th 7th-8th 11th 9th HS-grad Some-college Doctorate Assoc-acdm 1st-4th Assoc-voc 12th 5th-6th Bachelors Masters Preschool Prof-school 
+Prof-school Doctorate Assoc-acdm Bachelors Some-college Assoc-voc 1st-4th 12th 10th 5th-6th 11th Masters Preschool 9th HS-grad 7th-8th 
 
-Married-civ-spouse Separated Widowed Never-married Married-spouse-absent Divorced Married-AF-spouse 
-Handlers-cleaners Protective-serv Tech-support Prof-specialty Farming-fishing Other-service Transport-moving Sales Machine-op-inspct Priv-house-serv Craft-repair Armed-Forces Exec-managerial Adm-clerical 
-Own-child Unmarried Husband Not-in-family Wife Other-relative 
-White Amer-Indian-Eskimo Black Asian-Pac-Islander Other 
-Female Male 
+Divorced Never-married Separated Widowed Married-civ-spouse Married-spouse-absent Married-AF-spouse 
+Handlers-cleaners Adm-clerical Sales Protective-serv Prof-specialty Farming-fishing Other-service Tech-support Transport-moving Armed-Forces Craft-repair Exec-managerial Priv-house-serv Machine-op-inspct 
+Not-in-family Other-relative Wife Own-child Unmarried Husband 
+Asian-Pac-Islander Amer-Indian-Eskimo White Other Black 
+Male Female 
 
 
 
-Germany Puerto-Rico Haiti Dominican-Republic Greece Iran Taiwan China South England Outlying-US(Guam-USVI-etc) Scotland United-States Trinadad&Tobago Philippines Cuba Yugoslavia Cambodia Columbia Portugal Vietnam France Peru Jamaica Nicaragua India Mexico Honduras Thailand Laos Canada Hong Hungary Guatemala Ireland Holand-Netherlands Poland Japan El-Salvador Italy Ecuador 
+Scotland Puerto-Rico Peru Mexico Thailand Jamaica Philippines Holand-Netherlands Cuba Nicaragua Hong China South Greece Haiti Yugoslavia Outlying-US(Guam-USVI-etc) Japan Honduras Laos Guatemala Canada Ecuador United-States France Hungary India Italy Iran Cambodia England El-Salvador Trinadad&Tobago Poland Taiwan Columbia Germany Ireland Dominican-Republic Vietnam Portugal 

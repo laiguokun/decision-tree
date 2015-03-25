@@ -3,9 +3,9 @@ attr = [0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1]
 tot = len(attr)
 
 attr_dex = []
+attr_cnt = []
 for i in range(0, tot):
 	attr_dex.append({})
-
 fin_attr = open("data\\attr.pre", "r");
 cnt = 0;
 for line in fin_attr:
@@ -33,7 +33,6 @@ for line in fin:
 			result.append(attrs[i])
 		else:
 			if (not(attrs[i] in attr_dex[i])):
-				print ('fuck');
 				result.append('?');
 			else:
 				result.append(attr_dex[i][attrs[i]]);
